@@ -1,11 +1,12 @@
 hapi-resource
 =============
 
-This is a resource function created for hapi.js in order to in order to reduce the amount of boilerplate code when writing hapi routes.
+This is a resource function created for hapi.js to reduce the amount of boilerplate code when writing hapi routes.
+this package include plural (s/ies) feature
 
 ###INSTALLATION
 
-`npm install hapi-resource`
+`npm install hapi-resource-z`
 
 ##USAGE
 
@@ -89,4 +90,3 @@ hapiServer.route([
   ...
 ]);
 ```
-

@@ -19,7 +19,7 @@
     "rest",
     "rest-routes"
   ],
-  "author": "Zainul Mas'adi",
+  "author": "Zainul Mas'adi <zainulmasadi90@gmail.com> (zainulmasadi.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zainul/hapi-resource-z/issues"
