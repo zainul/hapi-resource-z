@@ -1,0 +1,28 @@
+{
+  "name": "hapi-resource-z",
+  "version": "0.0.1",
+  "description": "This is a resource function created for hapi.js in order to in order to reduce the amount of boilerplate code when writing hapi routes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zainul/hapi-resource-z.git"
+  },
+  "keywords": [
+    "hapi.js",
+    "routes",
+    "resource",
+    "namespace",
+    "restful",
+    "rest",
+    "rest-routes"
+  ],
+  "author": "Zainul Mas'adi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zainul/hapi-resource-z/issues"
+  },
+  "homepage": "https://github.com/zainul/hapi-resource-z"
+}
