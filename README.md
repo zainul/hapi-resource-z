@@ -61,7 +61,7 @@ You can also easily namespace your routes:
 
 ```javascript
 
-var resource = require('hapi-resource');
+var resource = require('hapi-resource-z');
 
 server.route(
   resource({
