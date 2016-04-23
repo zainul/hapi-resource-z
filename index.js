@@ -16,8 +16,7 @@ module.exports = function(config) {
       path: config.namespace + '/' + config.name + plural,
       method: 'GET',
       config: {
-        handler: config.controller.index,
-        validate: config.validate || null
+        handler: config.controller.index
       }
     },
 
@@ -25,8 +24,7 @@ module.exports = function(config) {
       path: config.namespace + '/' + config.name + plural +'/{id}',
       method: 'GET',
       config: {
-        handler: config.controller.show,
-        validate: config.validate || null
+        handler: config.controller.show
       }
     },
 
@@ -52,8 +50,7 @@ module.exports = function(config) {
       path: config.namespace + '/' + config.name + plural +'/{id}',
       method: 'DELETE',
       config: {
-        handler: config.controller.destroy,
-        validate: config.validate || null
+        handler: config.controller.destroy
       }
     }
 

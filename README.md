@@ -11,6 +11,9 @@ this package include plural (s/ies) feature
 ##USAGE
 
 Given an API controller:
+```javascript
+const joi             = require('joi');
+```
 
 ```javascript
 var PostsController = {
@@ -34,7 +37,10 @@ you can now write:
 server.route(
   resource({
     name: 'post',
-    controller: PostsController
+    controller: PostsController,
+    validate: payload: {
+      name: joi.string().alphanum().required(),
+    }
   })
 );
 ```
