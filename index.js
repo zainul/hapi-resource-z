@@ -15,41 +15,46 @@ module.exports = function(config) {
     {
       path: config.namespace + '/' + config.name + plural,
       method: 'GET',
-      handler: config.controller.index,
-      description: config.description,
-      validate: config.validate || null
+      config: {
+        handler: config.controller.index,
+        validate: config.validate || null
+      }
     },
 
     {
       path: config.namespace + '/' + config.name + plural +'/{id}',
       method: 'GET',
-      handler: config.controller.show,
-      description: config.description,
-      validate: config.validate || null
+      config: {
+        handler: config.controller.show,
+        validate: config.validate || null
+      }
     },
 
     {
       path: config.namespace + '/' + config.name + plural,
       method: 'POST',
-      handler: config.controller.create,
-      description: config.description,
-      validate: config.validate || null
+      config: {
+        handler: config.controller.create,
+        validate: config.validate || null
+      }
     },
 
     {
       path: config.namespace + '/' + config.name + plural +'/{id}',
       method: 'PUT',
-      handler: config.controller.update,
-      description: config.description,
-      validate: config.validate || null
+      config: {
+        handler: config.controller.update,
+        validate: config.validate || null
+      }
     },
 
     {
       path: config.namespace + '/' + config.name + plural +'/{id}',
       method: 'DELETE',
-      handler: config.controller.destroy,
-      description: config.description,
-      validate: config.validate || null
+      config: {
+        handler: config.controller.destroy,
+        validate: config.validate || null
+      }
     }
 
   ];
