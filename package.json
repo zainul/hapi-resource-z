@@ -1,6 +1,6 @@
 {
   "name": "hapi-resource-z",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "This is a resource function created for hapi.js in order to in order to reduce the amount of code when writing hapi routes.",
   "main": "index.js",
   "scripts": {

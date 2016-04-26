@@ -70,13 +70,12 @@ module.exports = function(config) {
 
   let restMethod = config.methods || [];
 
-  if (restMethod.length != 0) {
+  if (restMethod.length == 0) {
     restMethod = ['show', 'all', 'update', 'delete', 'create'];
   }
 
-  let buildRoute = [];
-
-  for (var i, len = restMethod.length; i < len; i++) {
+  var buildRoute = [];
+  for (var i=0, len = restMethod.length; i < len; i++) {
     buildRoute.push(rest[restMethod[i]]);
   }
 
