@@ -3,7 +3,16 @@
 module.exports = function(config) {
   let plural = 's';
   let oldName = config.name;
-  
+
+  if(!config.namespace) config.namespace = '';
+
+  if (config.name.substring()[config.name.substring().length - 1] == 'y') {
+    oldName = config.name;
+    plural = 'es';
+    let replacedName = config.name.slice(0, -1) + 'i';
+    config.name = replacedName;
+  }
+
   let rest = {
     show: {
       path: config.namespace + '/' + config.name + plural +'/{id}',
@@ -59,25 +68,16 @@ module.exports = function(config) {
     }
   }
 
-  if(!config.namespace) config.namespace = '';
-
-  if (config.name.substring()[config.name.substring().length - 1] == 'y') {
-    oldName = config.name;
-    plural = 'es';
-    let replacedName = config.name.slice(0, -1) + 'i';
-    config.name = replacedName;
-  }
-
   let restMethod = config.methods || [];
 
-  if (config.methods.length != 0) {
-    config.methods = ['show', 'all', 'update', 'delete', 'create'];
+  if (restMethod.length != 0) {
+    restMethod = ['show', 'all', 'update', 'delete', 'create'];
   }
 
   let buildRoute = [];
 
-  for (var i, len = config.methods.length; i < length; i++) {
-    buildRoute.push(rest[config.methods[i]]);
+  for (var i, len = restMethod.length; i < length; i++) {
+    buildRoute.push(rest[restMethod[i]]);
   }
 
   return buildRoute;
