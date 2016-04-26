@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = function(config) {
-
+  let plural = 's';
+  let oldName = config.name;
+  
   let rest = {
     show: {
       path: config.namespace + '/' + config.name + plural +'/{id}',
@@ -58,9 +60,6 @@ module.exports = function(config) {
   }
 
   if(!config.namespace) config.namespace = '';
-
-  let plural = 's';
-  let oldName = config.name;
 
   if (config.name.substring()[config.name.substring().length - 1] == 'y') {
     oldName = config.name;
