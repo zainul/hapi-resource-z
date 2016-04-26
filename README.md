@@ -40,7 +40,8 @@ server.route(
     controller: PostsController,
     validate: payload: {
       name: joi.string().alphanum().required(),
-    }
+    },
+    methods: ['all', 'show', 'create', 'update', 'delete' ] // optional if not defined (by default * included)
   })
 );
 ```

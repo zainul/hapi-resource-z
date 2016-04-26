@@ -1,31 +1,9 @@
+'use strict';
+
 module.exports = function(config) {
 
-  if(!config.namespace) config.namespace = '';
-
-  var plural = 's';
-  var oldName = config.name;
-
-  if (config.name.substring()[config.name.substring().length - 1] == 'y') {
-    oldName = config.name;
-    plural = 'es';
-    var replacedName = config.name.slice(0, -1) + 'i';
-    config.name = replacedName;
-  }
-
-  return [
-
-    {
-      path: config.namespace + '/' + config.name + plural,
-      method: 'GET',
-      config: {
-        handler: config.controller.index,
-        description: 'Get all '+oldName.replace('_', ' ') + ' records',
-        notes: 'Get all '+oldName.replace('_', ' ') + ' records',
-        tags: ['api', oldName]
-      }
-    },
-
-    {
+  let rest = {
+    show: {
       path: config.namespace + '/' + config.name + plural +'/{id}',
       method: 'GET',
       config: {
@@ -35,8 +13,17 @@ module.exports = function(config) {
         tags: ['api', oldName]
       }
     },
-
-    {
+    all: {
+      path: config.namespace + '/' + config.name + plural,
+      method: 'GET',
+      config: {
+        handler: config.controller.index,
+        description: 'Get all '+oldName.replace('_', ' ') + ' records',
+        notes: 'Get all '+oldName.replace('_', ' ') + ' records',
+        tags: ['api', oldName]
+      }
+    },
+    create: {
       path: config.namespace + '/' + config.name + plural,
       method: 'POST',
       config: {
@@ -47,8 +34,7 @@ module.exports = function(config) {
         tags: ['api', oldName]
       }
     },
-
-    {
+    update: {
       path: config.namespace + '/' + config.name + plural +'/{id}',
       method: 'PUT',
       config: {
@@ -59,8 +45,7 @@ module.exports = function(config) {
         tags: ['api', oldName]
       }
     },
-
-    {
+    delete: {
       path: config.namespace + '/' + config.name + plural +'/{id}',
       method: 'DELETE',
       config: {
@@ -70,7 +55,31 @@ module.exports = function(config) {
         tags: ['api', oldName]
       }
     }
+  }
 
-  ];
+  if(!config.namespace) config.namespace = '';
 
+  let plural = 's';
+  let oldName = config.name;
+
+  if (config.name.substring()[config.name.substring().length - 1] == 'y') {
+    oldName = config.name;
+    plural = 'es';
+    let replacedName = config.name.slice(0, -1) + 'i';
+    config.name = replacedName;
+  }
+
+  let restMethod = config.methods || [];
+
+  if (config.methods.length != 0) {
+    config.methods = ['show', 'all', 'update', 'delete', 'create'];
+  }
+
+  let buildRoute = [];
+
+  for (var i, len = config.methods.length; i < length; i++) {
+    buildRoute.push(rest[config.methods[i]]);
+  }
+
+  return buildRoute;
 }
