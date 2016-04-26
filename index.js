@@ -76,7 +76,7 @@ module.exports = function(config) {
 
   let buildRoute = [];
 
-  for (var i, len = restMethod.length; i < length; i++) {
+  for (var i, len = restMethod.length; i < len; i++) {
     buildRoute.push(rest[restMethod[i]]);
   }
 
